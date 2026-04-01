@@ -187,10 +187,6 @@ def scrape_internshala(search_query: str = "data-science", pages: int = 3) -> in
 
 
 def scrape_github_jobs_archive() -> int:
-    """
-    Uses a public jobs dataset API — JSONPlaceholder style.
-    Guaranteed to work, good for testing pipeline.
-    """
     total_inserted = 0
 
     # Public job listings API — no auth, always works
@@ -259,15 +255,15 @@ def scrape_naukri(search_query: str = "data analyst intern",
     """
     total = 0
 
-    # Source 1 — Remotive (always works)
+    
     total += scrape_remotive("data analyst")
     total += scrape_remotive("python developer")
     total += scrape_remotive("machine learning")
 
-    # Source 2 — Jobicy (always works)
+    
     total += scrape_github_jobs_archive()
 
-    # Source 3 — Internshala (India specific)
+    
     total += scrape_internshala()
 
     return total
